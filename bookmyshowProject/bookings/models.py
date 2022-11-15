@@ -27,7 +27,7 @@ class Seattype(models.Model):
 
 class Seats(models.Model):
     # Field name made lowercase.
-    id = models.IntegerField(db_column='Id', primary_key=True)
+    id = models.AutoField(db_column='Id', primary_key=True)
     # Field name made lowercase.
     created_on = models.DateTimeField(
         db_column='Created_on', blank=True, null=True)
