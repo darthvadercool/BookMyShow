@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import CountryList, CountryDetail, StateList, StateDetail
+from .views import CountryList, CountryDetail, StateList, StateDetail, CityList
 
 
 urlpatterns = [
@@ -8,6 +8,9 @@ urlpatterns = [
 
     path('state/', StateList.as_view()),
     path('state/<int:pk>/', StateDetail.as_view()),
+
+    path('city/', CityList.as_view()),
+    # path('state/<int:pk>/', StateDetail.as_view()),
 
     # path('movie-genre/', MovieGenreList.as_view()),
     # path('movie-genre/<int:pk>/', MovieGenreDetail.as_view()),

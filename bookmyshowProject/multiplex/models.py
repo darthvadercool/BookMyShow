@@ -34,13 +34,14 @@ class City(models.Model):
     id = models.AutoField(db_column='Id', primary_key=True)
     city_name = models.CharField(max_length=20)
     # Field name made lowercase.
-    pincode = models.IntegerField(db_column='Pincode', blank=True, null=True)
+    pincode = models.IntegerField(
+        db_column='Pincode', blank=True, null=True)
     # Field name made lowercase.
-    stateid = models.ForeignKey(
-        'State', models.DO_NOTHING, db_column='StateId', blank=True, null=True)
+    state = models.ForeignKey(
+        'State', models.DO_NOTHING, db_column='StateId', blank=True, null=True,  related_name='cities')
     # Field name made lowercase.
-    countryid = models.ForeignKey(
-        'Country', models.DO_NOTHING, db_column='CountryId', blank=True, null=True)
+    country = models.ForeignKey(
+        'Country', models.DO_NOTHING, db_column='CountryId', blank=True, null=True, related_name="country")
 
     def __str__(self):
         return self.city_name

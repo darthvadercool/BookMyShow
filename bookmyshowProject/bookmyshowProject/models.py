@@ -5,29 +5,29 @@
 #   * Make sure each ForeignKey and OneToOneField has `on_delete` set to the desired behavior
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
-from django.db import models
+# from django.db import models
 
 
-class Actor(models.Model):
-    # Field name made lowercase.
-    id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
-    updated_on = models.DateTimeField(
-        db_column='Updated_on', blank=True, null=True)
-    # Field name made lowercase.
-    created_on = models.DateTimeField(
-        db_column='Created_on', blank=True, null=True)
-    is_deleted = models.IntegerField(blank=True, null=True)
-    # Field name made lowercase.
-    firstname = models.CharField(
-        db_column='Firstname', max_length=50, blank=True, null=True)
-    # Field name made lowercase.
-    lastname = models.CharField(
-        db_column='Lastname', max_length=50, blank=True, null=True)
+# class Actor(models.Model):
+#     # Field name made lowercase.
+#     id = models.AutoField(db_column='Id', primary_key=True)
+#     # Field name made lowercase.
+#     updated_on = models.DateTimeField(
+#         db_column='Updated_on', blank=True, null=True)
+#     # Field name made lowercase.
+#     created_on = models.DateTimeField(
+#         db_column='Created_on', blank=True, null=True)
+#     is_deleted = models.IntegerField(blank=True, null=True)
+#     # Field name made lowercase.
+#     firstname = models.CharField(
+#         db_column='Firstname', max_length=50, blank=True, null=True)
+#     # Field name made lowercase.
+#     lastname = models.CharField(
+#         db_column='Lastname', max_length=50, blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'Actor'
+#     class Meta:
+#         managed = False
+#         db_table = 'Actor'
 
 
 # class Agecategory(models.Model):
@@ -102,19 +102,19 @@ class Actor(models.Model):
 #         db_table = 'Coupon'
 
 
-class Movieactormap(models.Model):
-    # Field name made lowercase.
-    id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
-    movieid = models.ForeignKey(
-        'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
-    actorid = models.ForeignKey(
-        Actor, models.DO_NOTHING, db_column='ActorId', blank=True, null=True)
+# class Movieactormap(models.Model):
+#     # Field name made lowercase.
+#     id = models.AutoField(db_column='Id', primary_key=True)
+#     # Field name made lowercase.
+#     movieid = models.ForeignKey(
+#         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
+#     # Field name made lowercase.
+#     actorid = models.ForeignKey(
+#         Actor, models.DO_NOTHING, db_column='ActorId', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'MovieActorMap'
+#     class Meta:
+#         managed = False
+#         db_table = 'MovieActorMap'
 
 
 # class Moviecertificationmap(models.Model):
@@ -237,27 +237,27 @@ class Movieactormap(models.Model):
 #         db_table = 'Payment'
 
 
-class Reviews(models.Model):
-    # Field name made lowercase.
-    id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
-    movieid = models.ForeignKey(
-        Movies, models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
-    review_comment = models.CharField(
-        db_column='Review_comment', max_length=255)
-    # Field name made lowercase.
-    ratings_date = models.DateField(
-        db_column='Ratings_date', blank=True, null=True)
-    # Field name made lowercase.
-    isuser = models.IntegerField(db_column='isUser', blank=True, null=True)
-    # Field name made lowercase.
-    userid = models.ForeignKey(
-        'User', models.DO_NOTHING, db_column='UserId', blank=True, null=True)
+# class Reviews(models.Model):
+#     # Field name made lowercase.
+#     id = models.AutoField(db_column='Id', primary_key=True)
+#     # Field name made lowercase.
+#     movieid = models.ForeignKey(
+#         Movies, models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
+#     # Field name made lowercase.
+#     review_comment = models.CharField(
+#         db_column='Review_comment', max_length=255)
+#     # Field name made lowercase.
+#     ratings_date = models.DateField(
+#         db_column='Ratings_date', blank=True, null=True)
+#     # Field name made lowercase.
+#     isuser = models.IntegerField(db_column='isUser', blank=True, null=True)
+#     # Field name made lowercase.
+#     userid = models.ForeignKey(
+#         'User', models.DO_NOTHING, db_column='UserId', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'Reviews'
+#     class Meta:
+#         managed = False
+#         db_table = 'Reviews'
 
 
 # class Screen(models.Model):

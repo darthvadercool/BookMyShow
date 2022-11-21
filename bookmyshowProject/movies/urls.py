@@ -3,8 +3,7 @@ from .views import MovieList, MovieDetail, MovieLanguageList, \
     MovieLangDetail, MovieGenreList, MovieGenreDetail, \
     MovieDimensionList, MovieDimensionDetail, \
     MovieCertificationList, MovieCertificationDetail, \
-    ActorList, ActorDetail
-
+    ActorList, ActorDetail, LangMap
 
 urlpatterns = [
     path('movies/', MovieList.as_view()),
@@ -24,6 +23,8 @@ urlpatterns = [
 
     path('actor/', ActorList.as_view()),
     path('actor/<int:pk>/', ActorDetail.as_view()),
+
+    path('language-map/', LangMap.as_view()),
 
 
 ]

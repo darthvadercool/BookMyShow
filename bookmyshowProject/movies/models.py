@@ -49,11 +49,14 @@ class Movielanguagemap(models.Model):
     # Field name made lowercase.
     id = models.AutoField(db_column='Id', primary_key=True)
     # Field name made lowercase.
-    movieid = models.ForeignKey(
+    movie = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
     # Field name made lowercase.
-    movielanguageid = models.ForeignKey(
+    movielanguage = models.ForeignKey(
         'Movielanguages', models.DO_NOTHING, db_column='MovieLanguageId', blank=True, null=True)
+
+    def __str__(self):
+        return self.movieid
 
     class Meta:
         managed = False
@@ -135,11 +138,14 @@ class Moviecertificationmap(models.Model):
     # Field name made lowercase.
     id = models.AutoField(db_column='Id', primary_key=True)
     # Field name made lowercase.
-    movieid = models.ForeignKey(
+    movie = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
     # Field name made lowercase.
-    certificationid = models.ForeignKey(
+    certification = models.ForeignKey(
         Agecategory, models.DO_NOTHING, db_column='CertificationId', blank=True, null=True)
+
+    def __str__(self):
+        return self.movie
 
     class Meta:
         managed = False
