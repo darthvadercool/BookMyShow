@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Payment(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
     transaction_type = models.CharField(max_length=50, blank=True, null=True)
     transaction_id = models.CharField(max_length=50, blank=True, null=True)
@@ -15,11 +15,11 @@ class Payment(models.Model):
 
 
 class Coupon(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
     name = models.CharField(max_length=25, blank=True, null=True)
     discount = models.CharField(max_length=255, blank=True, null=True)
-    # Field name made lowercase.
+
     validtill = models.DateTimeField(
         db_column='validTill', blank=True, null=True)
 

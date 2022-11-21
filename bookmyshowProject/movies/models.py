@@ -46,12 +46,10 @@ class Movielanguages(models.Model):
 
 
 class Movielanguagemap(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
     movie = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
     movielanguage = models.ForeignKey(
         'Movielanguages', models.DO_NOTHING, db_column='MovieLanguageId', blank=True, null=True)
 
@@ -77,12 +75,9 @@ class Moviegenre(models.Model):
 
 
 class Moviegenremap(models.Model):
-    # Field name made lowercase.
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
     movieid = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
     moviegenreid = models.ForeignKey(
         Moviegenre, models.DO_NOTHING, db_column='MovieGenreId', blank=True, null=True)
 
@@ -106,12 +101,12 @@ class Moviedimension(models.Model):
 
 
 class Moviedimensionmap(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
+
     movieid = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
+
     moviedimensionid = models.ForeignKey(
         Moviedimension, models.DO_NOTHING, db_column='MovieDimensionId', blank=True, null=True)
 
@@ -135,12 +130,12 @@ class Agecategory(models.Model):
 
 
 class Moviecertificationmap(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
+
     movie = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
+
     certification = models.ForeignKey(
         Agecategory, models.DO_NOTHING, db_column='CertificationId', blank=True, null=True)
 
@@ -154,19 +149,19 @@ class Moviecertificationmap(models.Model):
 
 
 class Actor(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
+
     updated_on = models.DateTimeField(
         db_column='Updated_on', blank=True, null=True)
-    # Field name made lowercase.
+
     created_on = models.DateTimeField(
         db_column='Created_on', blank=True, null=True)
     is_deleted = models.IntegerField(blank=True, null=True)
-    # Field name made lowercase.
+
     firstname = models.CharField(
         db_column='Firstname', max_length=50, blank=True, null=True)
-    # Field name made lowercase.
+
     lastname = models.CharField(
         db_column='Lastname', max_length=50, blank=True, null=True)
 
@@ -176,12 +171,12 @@ class Actor(models.Model):
 
 
 class Movieactormap(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
+
     movieid = models.ForeignKey(
         'Movies', models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
+
     actorid = models.ForeignKey(
         Actor, models.DO_NOTHING, db_column='ActorId', blank=True, null=True)
 
@@ -192,21 +187,21 @@ class Movieactormap(models.Model):
 
 
 class Reviews(models.Model):
-    # Field name made lowercase.
+
     id = models.AutoField(db_column='Id', primary_key=True)
-    # Field name made lowercase.
+
     movieid = models.ForeignKey(
         Movies, models.DO_NOTHING, db_column='MovieId', blank=True, null=True)
-    # Field name made lowercase.
+
     review_comment = models.CharField(
         db_column='Review_comment', max_length=255)
-    # Field name made lowercase.
+
     ratings_date = models.DateField(
         db_column='Ratings_date', blank=True, null=True)
-    # Field name made lowercase.
+
     isuser = models.BooleanField(
         db_column='isUser', blank=True, null=True, default=False)
-    # Field name made lowercase.
+
     userid = models.ForeignKey(
         User, models.DO_NOTHING, db_column='UserId', blank=True, null=True)
 

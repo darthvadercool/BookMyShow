@@ -29,3 +29,8 @@ class CityList(generics.ListCreateAPIView):
 
     queryset = City.objects.all()
     serializer_class = CitySerializer
+
+
+class CityDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = City.objects.all()
+    serializer_class = CitySerializer
