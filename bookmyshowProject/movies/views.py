@@ -4,10 +4,10 @@ from rest_framework import generics
 from .serializers import MoviesListSerializer, MoviesDetailSerializer, \
     MoviesLanguageListSerializer, MoviesLanguageDetailSerializer, \
     MoviesGenreSerializer, MoviesDimensionSerializer, MoviesCertificationSerializer, \
-    ActorListSerializer, ActorDetailSerializer, MovieLangMapSerializer
+    ActorListSerializer, ActorDetailSerializer, MovieLangMapSerializer, CertificationMapSerializer
 
 
-from .models import Movies, Movielanguages, Moviegenre, Moviedimension, Agecategory, Actor, Movielanguagemap
+from .models import Movies, Movielanguages, Moviegenre, Moviedimension, Agecategory, Actor, Movielanguagemap, Moviecertificationmap
 
 
 class MovieList(generics.ListCreateAPIView):
@@ -73,3 +73,8 @@ class ActorDetail(generics.RetrieveUpdateDestroyAPIView):
 class LangMap(generics.ListCreateAPIView):
     queryset = Movielanguagemap.objects.all()
     serializer_class = MovieLangMapSerializer
+
+
+class CertificationMap(generics.ListCreateAPIView):
+    queryset = Moviecertificationmap.objects.all()
+    serializer_class = CertificationMapSerializer

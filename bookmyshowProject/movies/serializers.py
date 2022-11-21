@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from .models import Movies, Moviegenre, Movielanguages, Agecategory, Moviedimension, Actor, Movielanguagemap
+from .models import Movies, Moviegenre, Movielanguages, Agecategory, Moviedimension, Actor, \
+    Movielanguagemap, Agecategory
 
 
 class MoviesListSerializer(serializers.ModelSerializer):
@@ -71,8 +72,18 @@ class ActorDetailSerializer(serializers.ModelSerializer):
 class MovieLangMapSerializer(serializers.ModelSerializer):
 
     movie = MoviesDetailSerializer()
-    movielanguage = MoviesLanguageDetailSerializer()
+    certification = MoviesLanguageDetailSerializer()
 
     class Meta:
         model = Movielanguagemap
         fields = ['id', 'movie', 'movielanguage']
+
+
+class CertificationMapSerializer(serializers.ModelSerializer):
+
+    movie = MoviesDetailSerializer()
+    certification = MoviesCertificationSerializer()
+
+    class Meta:
+        model = Movielanguagemap
+        fields = ['id', 'movie', 'certification']

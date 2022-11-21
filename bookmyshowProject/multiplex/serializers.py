@@ -24,12 +24,3 @@ class CitySerializer(serializers.ModelSerializer):
     class Meta:
         model = City
         fields = ['id', 'city_name', 'pincode', 'state', 'country']
-
-
-class AgeSerializer(serializers.ModelSerializer):
-    country = CountrySerializer()
-    state = StateSerializer()
-
-    class Meta:
-        model = City
-        fields = ['id', 'city_name', 'pincode', 'state', 'country']
