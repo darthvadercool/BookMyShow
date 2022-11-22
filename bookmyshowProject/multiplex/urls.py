@@ -6,8 +6,9 @@ urlpatterns = [
     path('country/', CountryList.as_view()),
     path('country/<int:pk>/', CountryDetail.as_view()),
 
-    path('state/', StateList.as_view()),
-    path('state/<int:pk>/', StateDetail.as_view()),
+    path('state/', StateList.as_view(), name='get_all_states'),
+    path('state/<int:pk>/', StateDetail.as_view(),
+         name='get_delete_update_state'),
 
     path('city/', CityList.as_view()),
     path('city/<int:pk>/', CityDetail.as_view())
