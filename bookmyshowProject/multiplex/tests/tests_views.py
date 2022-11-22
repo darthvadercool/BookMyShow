@@ -109,7 +109,7 @@ class UpdateSingleStateTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_invalid_update_statetate(self):
+    def test_invalid_update_state(self):
         response = client.put(
             reverse('get_delete_update_state', kwargs={'pk': self.state2.id}),
             data=json.dumps(self.invalid_payload),
@@ -117,19 +117,19 @@ class UpdateSingleStateTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
 
-class DeleteSingleSatteTest(TestCase):
+class DeleteSingleStateTest(TestCase):
     """ Test module for deleting an existing state record """
 
     def setUp(self):
         self.state1 = State.objects.create(name='Delhi')
         self.state2 = State.objects.create(name='UP')
 
-    def test_valid_delete_puppy(self):
+    def test_valid_delete_state(self):
         response = client.delete(
             reverse('get_delete_update_state', kwargs={'pk': self.state1.id}))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
-    def test_invalid_delete_puppy(self):
+    def test_invalid_delete_state(self):
         response = client.delete(
             reverse('get_delete_update_state', kwargs={'pk': 30}))
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
