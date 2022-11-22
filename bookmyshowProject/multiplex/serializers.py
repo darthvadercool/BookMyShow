@@ -52,7 +52,7 @@ class CitySerializer(serializers.ModelSerializer):
         request = self.context['request']
 
         """state object assignment"""
-        print(request.data)
+
         state_name = request.data.get('state')
         try:
             state = State.objects.get(name=state_name["name"])

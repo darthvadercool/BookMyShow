@@ -18,6 +18,9 @@ class Movies(models.Model):
         db_column='Updated_on', blank=True, null=True)
     is_deleted = models.BooleanField(blank=True, null=True)
 
+    def get_full_name(self):
+        return self.movies_name
+
     def __str__(self):
         return self.movies_name
 
